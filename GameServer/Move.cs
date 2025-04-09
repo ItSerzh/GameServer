@@ -6,6 +6,6 @@ public class Move(IMovable movable)
 {
     public void Execute()
     {
-        movable.Move();
+        movable.Position += movable.Velocity;
     }
 }

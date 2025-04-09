@@ -2,7 +2,6 @@
 
 public interface ISpinning
 {
-    double GetAngle();
-    void Spin(double angle);
+    double Angle { get; set; }
 }
 

@@ -9,15 +9,15 @@ public class SpinTests
     public void CheckNewAngle()
     {
         // Arrange
-        var ship1 = new Ship(null);
-        ship1.SetAngle(15);
-        var rotation = new Spin(ship1);
+        var ship = new Ship(null);
+        ship.Angle = 15;
+        var rotation = new Spin(ship);
 
         // Act
-        rotation.Rotate(25);
+        rotation.Execute(25);
 
         // Assert
-        Assert.Equal(40, ship1.GetAngle());
+        Assert.Equal(40, ship.GetAngle());
     }
 
     [Fact]
@@ -28,7 +28,7 @@ public class SpinTests
         var rotation = new Spin(ship1);
 
         // Assert
-        Assert.Throws<InvalidOperationException>(() => rotation.Rotate(25)) ;
+        Assert.Throws<InvalidOperationException>(() => rotation.Execute(25)) ;
     }
 }
 

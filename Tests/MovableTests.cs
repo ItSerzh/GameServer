@@ -7,7 +7,7 @@ namespace Tests;
 public class MovableTests
 {
     [Fact]
-    public void CheckDesctionationAfterMove()
+    public void CheckDestinationAfterMove()
     {
         // Arrange
         var startPosition = new Vector { X = 12, Y = 5 };
@@ -42,8 +42,9 @@ public class MovableTests
         // Arrange
         var velocity = new Vector { X = -7, Y = 3 };
         Vector? startPosition = null;
-        var ship1 = new Ship(startPosition) { Velocity = velocity };
+        var ship = new Ship(startPosition) { Velocity = velocity };
+        var move = new Move(ship);
         // Assert
-        Assert.Throws<InvalidOperationException>(ship1.Move);
+        Assert.Throws<InvalidOperationException>(move.Execute);
     }
 }

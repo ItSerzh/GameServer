@@ -4,9 +4,9 @@ namespace GameServer;
 
 public class Spin(ISpinning spinning)
 {
-    public void Rotate(double angle)
+    public void Execute(double angle)
     {
-        spinning.Spin(angle);
+        spinning.Angle += angle;
     }
 }
 

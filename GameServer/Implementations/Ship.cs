@@ -9,12 +9,9 @@ public class Ship(Vector vector) : IMovable, ISpinning
     private Vector _velocity;
     private double? _angle;
 
-    public Vector GetPosition()
-    {
-        return _position;
-    }
-
     public Vector Velocity { get => GetVelocity(); set => _velocity = value; }
+    public Vector Position { get => GetPosition(); set => _position = value; }
+    public double Angle { get => GetAngle(); set => _angle = value; }
 
     public Vector GetVelocity()
     {
@@ -22,27 +19,17 @@ public class Ship(Vector vector) : IMovable, ISpinning
         return _velocity;
     }
 
-    public void Move()
+    public Vector GetPosition()
     {
-        if (_position == null) throw new InvalidOperationException("Attempt to move object without position");
-        _position += Velocity;
+        if (_position == null) throw new InvalidOperationException("Attempt to read not initialized value");
+        return _position;
     }
+
 
     public double GetAngle()
     {
         if (_angle == null) throw new InvalidOperationException("Attempt to get uninitialized angle");
         return _angle.Value;
-    }
-
-    public void Spin(double angle)
-    {
-        if (_angle == null) throw new InvalidOperationException("Attempt to spin object without initial angle");
-        _angle += angle;
-    }
-
-    public void SetAngle(double angle)
-    {
-        _angle = angle;
     }
 }
 
