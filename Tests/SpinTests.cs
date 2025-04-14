@@ -10,11 +10,12 @@ public class SpinTests
     {
         // Arrange
         var ship = new Ship(null);
-        ship.Angle = 15;
-        var rotation = new Spin(ship);
+        ship.CurrentAngle = 15;
+        ship.AdditionAngle = 25;
+        var rotation = new Rotate(ship);
 
         // Act
-        rotation.Execute(25);
+        rotation.Execute();
 
         // Assert
         Assert.Equal(40, ship.GetAngle());
@@ -25,10 +26,11 @@ public class SpinTests
     {
         // Arrange
         var ship1 = new Ship(null);
-        var rotation = new Spin(ship1);
+        ship1.AdditionAngle = 8;
+        var rotation = new Rotate(ship1);
 
         // Assert
-        Assert.Throws<InvalidOperationException>(() => rotation.Execute(25)) ;
+        Assert.Throws<InvalidOperationException>(() => rotation.Execute()) ;
     }
 }
 

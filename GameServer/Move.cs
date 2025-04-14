@@ -2,7 +2,7 @@
 
 namespace GameServer;
 
-public class Move(IMovable movable)
+public class Move(IMovable movable) : ICommand
 {
     public void Execute()
     {
